@@ -6,6 +6,7 @@
     --text-color: #ECDFCC;
     --hover-color: #697565;
     --login-color: #2d7ee9;
+    --overlay-color: #00000080;
 }
 
 *{
@@ -13,10 +14,10 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 html{
     font-family: Nunito, "Geist Mono", monospace;
     color: var(--text-color);
+    scroll-behavior: smooth;
 }
 body{
     min-height: 100dvh;
@@ -63,11 +64,28 @@ nav .home-link{
 nav .login-link{
     background-color: var(--login-color);
 }
-
+#burger-icon{
+    display: none;
+    background: none;
+    border: none;
+    padding: 1rem;
+    margin-left: auto;
+    cursor: pointer;
+}
+#close-icon{
+    display: none;
+    background: none;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+}
 
 /** Media Query */
 
 @media (width <= 700px) {
+    #burger-icon, #close-icon{
+        display: block;
+    }
     nav{
         position: fixed;
         top: 0;
@@ -85,6 +103,13 @@ nav .login-link{
     }
     nav.show{
         right: 0; 
+    }
+    .overlay{
+        display: block;
+        background: var(--overlay-color);
+        position: fixed;
+        inset: 0;
+        z-index: 998;
     }
     nav ul{
         flex-direction: column;
